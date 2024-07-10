@@ -1,0 +1,9 @@
+FROM ghcr.io/tiiuae/fog-ros-baseimage:sha-2f516bb
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  ros-galactic-rclpy
+
+COPY entrypoint.sh /entrypoint.sh
+COPY subscriber.py /subscriber.py
